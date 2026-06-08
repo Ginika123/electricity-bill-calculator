@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electricity Bill Calculator</title>
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>⚡ Electricity Bill Calculator</h1>
+
+    <button id="darkModeBtn">🌙 Dark Mode</button>
+</header>
+
+<div class="container">
+
+    <!-- FORM -->
+    <div class="form-container">
+
+        <h2>Customer Information</h2>
+
+        <input type="text" id="customerName" placeholder="Customer Name">
+        <input type="text" id="meterNumber" placeholder="Meter Number">
+        <input type="number" id="units" placeholder="Units Consumed">
+
+        <button onclick="calculateBill()">Calculate Bill</button>
+
+    </div>
+
+    <!-- RESULT -->
+    <div id="result" class="result-card">
+        <h2>Bill Summary</h2>
+        <p>No calculation yet.</p>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="action-buttons">
+
+        <button onclick="printReceipt()">🖨 Print Receipt</button>
+        <button onclick="downloadReceipt()">📥 Download Receipt</button>
+        <button onclick="clearHistory()">🗑 Delete History</button>
+
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+
+        <div class="card">
+            <h3>Total Bills</h3>
+            <p id="totalBills">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Highest Bill</h3>
+            <p id="highestBill">₦0</p>
+        </div>
+
+        <div class="card">
+            <h3>Lowest Bill</h3>
+            <p id="lowestBill">₦0</p>
+        </div>
+
+        <div class="card">
+            <h3>Average Bill</h3>
+            <p id="averageBill">₦0</p>
+        </div>
+
+    </div>
+
+    <!-- HISTORY -->
+    <div class="history-section">
+
+        <h2>Billing History</h2>
+
+        <input type="text"
+               id="searchInput"
+               placeholder="Search Customer..."
+               onkeyup="searchHistory()">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Units</th>
+                    <th>Total Bill</th>
+                </tr>
+            </thead>
+
+            <tbody id="historyTable"></tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<script src="/js/script.js"></script>
+
+</body>
+</html>
